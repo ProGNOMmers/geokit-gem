@@ -316,7 +316,7 @@ module Geokit
           results = JSON.parse(json)
         end
         
-        if results['ResultSet']['Error'] == 0
+        if results['ResultSet']['Error'] == 0 or not results['ResultSet']['Results']
           geoloc = nil
           results['ResultSet']['Results'].each do |result|
             extracted_geoloc = extract_geoloc(result)
